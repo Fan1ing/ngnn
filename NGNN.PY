@@ -63,7 +63,7 @@ CH2Cl2= fan[11, :]
 
 
 
-y1 = df['activity']
+y1 = df['wavelength']
 
 
 smiles = df['smile']
@@ -264,12 +264,12 @@ class MoleculesDataset(InMemoryDataset):
             for i in range(rows):
         #B
                 if embeddings[i,0] == 1:
-                    embeddings[i,-1] = 2.04 #电负性
-                    embeddings[i,-2] = 82  #共价半径
-                    embeddings[i,-3] = 5   #原子序数
-                    embeddings[i,-4] = 10.82 #原子质量
-                    embeddings[i,-5] = 8.298 #第一电离能
-                    embeddings[i,-6] = 0.277 #电子亲合能
+                    embeddings[i,-1] = 2.04 #Electronegativity
+                    embeddings[i,-2] = 82  #Covalent radius
+                    embeddings[i,-3] = 5   #Atomic number
+                    embeddings[i,-4] = 10.82 #Atomic mass
+                    embeddings[i,-5] = 8.298 #First ionization energy
+                    embeddings[i,-6] = 0.277 #Electron affinity
 
                 #Br
                 elif embeddings[i,1] == 1:
@@ -363,48 +363,48 @@ class MoleculesDataset(InMemoryDataset):
                     embeddings[i,-6] = 1.46
                  #P
                 elif embeddings[i,11] == 1:
-                    embeddings[i,-1] = 2.19 #电负性
-                    embeddings[i,-2] = 106  #共价半径
-                    embeddings[i,-3] = 15   #原子序数
-                    embeddings[i,-4] = 30.974 #原子质量
-                    embeddings[i,-5] = 10.487 #第一电离能
-                    embeddings[i,-6] = 0.75 #电子亲合能
+                    embeddings[i,-1] = 2.19
+                    embeddings[i,-2] = 106
+                    embeddings[i,-3] = 15
+                    embeddings[i,-4] = 30.974
+                    embeddings[i,-5] = 10.487
+                    embeddings[i,-6] = 0.75
 
 
                 #S
                 elif embeddings[i,12] == 1:
-                    embeddings[i,-1] = 2.58 #电负性
-                    embeddings[i,-2] = 102  #共价半径
-                    embeddings[i,-3] = 16   #原子序数
-                    embeddings[i,-4] = 32.06 #原子质量
-                    embeddings[i,-5] = 10.36 #第一电离能
-                    embeddings[i,-6] = 2.07 #电子亲合能
+                    embeddings[i,-1] = 2.58
+                    embeddings[i,-2] = 102
+                    embeddings[i,-3] = 16
+                    embeddings[i,-4] = 32.06
+                    embeddings[i,-5] = 10.36
+                    embeddings[i,-6] = 2.07
 
                 #Se
                 elif embeddings[i,13] == 1:
-                    embeddings[i,-1] = 2.55 #电负性
-                    embeddings[i,-2] = 116  #共价半径
-                    embeddings[i,-3] = 34   #原子序数
-                    embeddings[i,-4] = 78.971 #原子质量
-                    embeddings[i,-5] = 9.753 #第一电离能
-                    embeddings[i,-6] = 2.02 #电子亲合能
+                    embeddings[i,-1] = 2.55
+                    embeddings[i,-2] = 116
+                    embeddings[i,-3] = 34
+                    embeddings[i,-4] = 78.971
+                    embeddings[i,-5] = 9.753
+                    embeddings[i,-6] = 2.02
                 #Si
                 elif embeddings[i,14] == 1:
-                    embeddings[i,-1] = 1.90 #电负性
-                    embeddings[i,-2] = 111  #共价半径
-                    embeddings[i,-3] = 14   #原子序数
-                    embeddings[i,-4] = 28.085 #原子质量
-                    embeddings[i,-5] = 8.151 #第一电离能
-                    embeddings[i,-6] = 1.385 #电子亲合能
+                    embeddings[i,-1] = 1.90
+                    embeddings[i,-2] = 111
+                    embeddings[i,-3] = 14
+                    embeddings[i,-4] = 28.085
+                    embeddings[i,-5] = 8.151
+                    embeddings[i,-6] = 1.385
 
                 #Te
                 elif embeddings[i,15] == 1:
-                    embeddings[i,-1] = 2.1 #电负性
-                    embeddings[i,-2] = 135  #共价半径
-                    embeddings[i,-3] = 52   #原子序数
-                    embeddings[i,-4] = 127.6 #原子质量
-                    embeddings[i,-5] = 9.010 #第一电离能
-                    embeddings[i,-6] = 1.971 #电子亲合能
+                    embeddings[i,-1] = 2.1
+                    embeddings[i,-2] = 135
+                    embeddings[i,-3] = 52
+                    embeddings[i,-4] = 127.6
+                    embeddings[i,-5] = 9.010
+                    embeddings[i,-6] = 1.971
             embeddings = embeddings[:, 16:]
             embeddings = torch.tensor(embeddings,dtype=torch.float32)
 
@@ -506,10 +506,9 @@ train_loader = DataLoader(train_dataset, batch_size=32, shuffle=True)
 # for i in train_loader:
 #     print(i.edge_attr.shape)
 
-class GATv2ConvNet(nn.Module):
+class NGNN(nn.Module):
     def __init__(self, edge_feature_dim_1,edge_feature_dim_2, edge_hidden_dim):
-        super(GATv2ConvNet,self).__init__()
-        #第一层
+        super(NGNN,self).__init__()
         self.a1 = nn.Linear(6, 6)
         self.relu = nn.ReLU()
         #self.sigmoid = nn.Sigmoid()
@@ -645,7 +644,7 @@ edge_feature_dim_1, edge_feature_dim_2, edge_hidden_dim = 10 , 5 , 32
 num = 1000
 lr = 0.001#0.001已测
 
-model = GATv2ConvNet(edge_feature_dim_1, edge_feature_dim_2, edge_hidden_dim)
+model = NGNN(edge_feature_dim_1, edge_feature_dim_2, edge_hidden_dim)
 model = model.cuda()
 #print(model)
 

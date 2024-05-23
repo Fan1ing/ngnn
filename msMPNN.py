@@ -365,9 +365,9 @@ train_loader = DataLoader(train_dataset, batch_size=64, shuffle=True)
 # for i in train_loader:
 #     print(i.edge_attr.shape)
 
-class GATv2ConvNet(nn.Module):
+class NGNN(nn.Module):
     def __init__(self,node_feature_dim, edge_feature_dim, edge_hidden_dim):
-        super(GATv2ConvNet,self).__init__()
+        super(NGNN,self).__init__()
         #第一层
         self.a1 = nn.Linear(6, 6)
         self.relu = nn.ReLU()
@@ -476,7 +476,7 @@ node_feature_dim, edge_feature_dim, edge_hidden_dim = 32 , 10 , 32
 num = 1000
 lr = 0.001#0.001已测
 
-model = GATv2ConvNet(node_feature_dim, edge_feature_dim, edge_hidden_dim)
+model = NGNN(node_feature_dim, edge_feature_dim, edge_hidden_dim)
 model = model.cuda()
 #print(model)
 
