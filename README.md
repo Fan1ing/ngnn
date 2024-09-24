@@ -29,5 +29,8 @@ If you need to use your own dataset for prediction, simply prepare the required 
 |**data_E.csv** | Environmental features (solvent). |
 |**data_G.csv** |Solvational interaction parameter.|
 
+## Continuously updated
+We will continue to update the data and models in the future.If you have any questions, please contact us. The contact information can be found in our paper.
+
 
 
