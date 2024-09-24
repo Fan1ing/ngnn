@@ -12,7 +12,7 @@ Here are the details about the model.
 
 The following are the required Python libraries to be installed：numpy、pandas、rdkit、sklearn.
 
-##Data preparation
+## Data preparation
 If you need to use your own dataset for prediction, simply prepare the required molecular smiles format and its properties for prediction, and then process the data into the same format as the data we provide.
 
 ## Code content
