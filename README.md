@@ -1,6 +1,6 @@
 # NGNN
 ####  A Natural Growth Model for Predicting Physicochemical Property of Complex Systems.
-For more design concepts and details of the model, please refer to Article  ***Natural Growth Model for Predicting Physicochemical Property of Complex Systems.***
+For more design concepts and details of the model, please refer to Article  ***A Universal Framework for General Prediction of Physicochemical Properties: the Natural Growth Model***
 
 # Overview
 
@@ -14,8 +14,8 @@ NGNN is implemented using Pytorch and runs on windows11 with NVIDIA GeForce RTX 
 ## Code content
 |name |content |
 |----------------|--------------------------------|
-|**NGNN.m** | NGNN code used to predict molecular absorption wavelength. |
-|**msMPNN.m** |NGNN code for predicting molecular solubility.|
+|**NGNN.m** | NGNN code used to predict multi solvent molecular properties. |
+|**msMPNN.m** |NGNN code used to predict single solvent molecular properties.|
 
 ## Data content
 |name |content |
