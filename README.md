@@ -9,7 +9,8 @@ Here are the details about the model.
 ## Code running conditions
 
 NGNN is implemented using Pytorch and runs on windows11 with NVIDIA GeForce RTX 3060 graphics processing units,which relies on Pytorch Geometric.
-
+The following are the required Python libraries to be installed：
+numpy、pandas、rdkit、sklearn.
 
 ## Code content
 |name |content |
