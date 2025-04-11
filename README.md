@@ -29,6 +29,16 @@ If you need to use your own dataset for prediction, simply prepare the required 
 |**data_E.csv** | Environmental features (solvent). |
 |**data_G.csv** |Solvational interaction parameter.|
 
+## Different Model Prediction Results (MAE)
+
+|model |solubility |lipophilicity |IE |abs |EM |PLQY |
+|----------------|----------|-------|----------|------|-------|------|
+|**GCN** | 0.457 | 0.495| 0308 | 21.194 | 25.252 | 0.162 |
+|**GAT** | 0.464 | 0.658| 0387 | 30.967 | 28.825 | 0.187 |
+|**GBRT** | 0.447 | 0.490| 0281 | 14.17 | 19.676 | 0.127 |
+|**RF** | 0.410 | 0.517| 0342| 13.069 | 19.176 | 0.126 |
+|**NGNN** | 0.428 | 0.467| 0275 | 12.017 | 17.339 | 0.123 |
+
 ## Continuously updated
 We will continue to update the data and models in the future.If you have any questions, please contact us. The contact information can be found in our paper.
 
